@@ -21,8 +21,15 @@
 	fetch('//api.github.com/user', {
 			headers: {
 				// Include the token in the Authorization header
-				Authorization: 'token ' + token
-			}
+				Authorization: 'token ' + token,
+				'Access-Control-Allow-Origin': '*',
+				'Access-Control-Allow-Methods': 'GET,POST,PUT',
+				'Access-Control-Allow-Headers': 'Content-Type, Origin, Accept, Authorization, Content-Length, X-Requested-With',
+				'host':'http://localhost:8080',
+				'origin':'http://localhost:8080',
+				'Access-Control-Allow-Credentials': true
+			},
+			mode: 'no-cors'
 		})
 		// Parse the response as JSON
 		.then(res => res.json())
